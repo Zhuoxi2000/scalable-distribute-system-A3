@@ -68,10 +68,11 @@ public class Client {
     int requests = success.get() + failure.get();
     double wallTime = (double) ((endTime - startTime) - 1000L * delay * numThreadGroups) /1000L;
     double throughput = requests / wallTime;
-    System.out.println("Successful Requests: " + success.get());
-    System.out.println("Failed Requests: " + failure.get());
-    System.out.println("wallTime: " + wallTime);
-    System.out.println("throughput: " + throughput);
+    System.out.println("*******************************TIME CAL(ms)***********************************************");
+    System.out.println("Successful Num" + success.get());
+    System.out.println("Failed Num" + failure.get());
+    System.out.println("Throughput " + wallTime);
+    System.out.println("Wall Time " + throughput);
   }
 
   private static void findStatsfromArrayList(ArrayList<Double> list){
@@ -88,11 +89,12 @@ public class Client {
     }
     int index = (int) Math.ceil((99.0 / 100.0) * n) - 1;
     double p99 =  list.get(index);
-    System.out.println("min: " + min);
-    System.out.println("max: " + max);
-    System.out.println("mean: " + mean);
-    System.out.println("median: " + median);
-    System.out.println("p99: " + p99);
+    System.out.println("*******************************TIME CAL(ms)***********************************************");
+    System.out.println("Mean Response Time: " + mean);
+    System.out.println("Median Response Time: " + median);
+    System.out.println("p99 Response Time: " + p99);
+    System.out.println("Min Response Time: " + min);
+    System.out.println("Max Response Time: " + max );
   }
 
   private static void calculateStats(String csv_file){
@@ -116,11 +118,10 @@ public class Client {
   }
 
   public static void main(String[] args){
-    image = "/Users/sunny/Downloads/nmtb.png";
-    output_path = "/Users/sunny/Downloads/resources.csv";
-    //IPAddress = "http://cs6650-balancer-1431079427.us-west-2.elb.amazonaws.com:8080/java_servlet-1.0-SNAPSHOT/";
+    image = "/Users/nmtb.png";
+    output_path = "/Users/resources.csv";
     IPAddress = "http://54.213.178.93:8080/java_servlet-1.0-SNAPSHOT/";
-    //IPAddress = "http://localhost:8080/java_servlet_war_exploded/";
+
     try{
       initializate(10, IPAddress, image);
       startLoading(10,30, 2, IPAddress);
